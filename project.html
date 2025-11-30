@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fstyle</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Библиотеки (без пробелов!) -->
+    <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Главный скрипт -->
+    <script src="code.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="top-nav">
+        <h1 class="page-title">Меню</h1>
+        <nav class="menu">
+          <a href="#digital-wardrobe" class="menu-item">Цифровой гардероб</a>
+          <a href="#ai-analysis" class="menu-item">ИИ-анализ</a>
+          <a href="#exchange-sale" class="menu-item">Обмен/продажа</a>
+        </nav>
+      </div>
+      <hr />
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">Ваш персональный<br />стилист</h1>
+          <div class="hero-text">
+            <p>
+              Веб-платформа, которая помогает создавать стильные образы из
+              имеющейся одежды. Анализируя ваш цветотип, тип фигуры и стиль, она
+              помогает вам выглядеть на все сто без лишних покупок.
+            </p>
+            <button class="cta-button" id="start-quiz-btn">Начать</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Блок с самим тестом -->
+      <section id="quiz" class="quiz-section" style="display: none">
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="quiz-wrapper">
+          <div id="question-container"></div>
+          <button id="next-btn">Далее</button>
+        </div>
+      </section>
+
+      <!-- Блок загрузки фото -->
+      <section
+        id="wardrobe-upload"
+        class="upload-section"
+        style="display: none"
+      >
+        <h2>Загрузите до 5 вещей из гардероба</h2>
+        <p>Выберите предметы — мы создадим для вас персональный образ!</p>
+
+        <div id="upload-items"></div>
+        <button
+          id="add-item-btn"
+          class="cta-button"
+          style="margin: 10px auto; display: block; max-width: 200px"
+        >
+          ➕ Добавить вещь
+        </button>
+
+        <button id="generate-outfit-btn" class="cta-button">
+          Собрать образ
+        </button>
+        <button
+          id="download-outfit-btn"
+          class="cta-button"
+          style="display: none; margin-top: 10px"
+        >
+          Скачать образ
+        </button>
+
+        <div
+          id="outfit-preview"
+          class="outfit-preview"
+          style="display: none; margin-top: 20px"
+        ></div>
+      </section>
+
+      <!-- Блок с результатом -->
+      <section id="result" class="result-section" style="display: none">
+        <h2>Ваш стиль-профиль</h2>
+        <div id="result-text"></div>
+        <p>Оставьте email, чтобы первыми попробовать Fstyle:</p>
+        <form id="email-form">
+          <input
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+          />
+          <button type="submit">Получить доступ</button>
+        </form>
+      </section>
+
+      <div class="center-image">
+        <img src="girl.jpg" alt="Изображение" />
+      </div>
+
+      <!-- Цифровой гардероб -->
+      <section id="digital-wardrobe" class="feature-section">
+        <div class="feature-content">
+          <h2>Цифровой гардероб</h2>
+          <p>
+            Основные функции цифрового гардероба: подбор outfits, оптимизация
+            гардероба, помощь в избежании импульсивных покупок.
+          </p>
+        </div>
+      </section>
+
+      <!-- ИИ-анализ -->
+      <section id="ai-analysis" class="feature-section">
+        <div class="feature-content">
+          <h2>ИИ-анализ</h2>
+          <p>
+            ИИ-анализ определяет ваш цветотип и тип фигуры, что помогает создать
+            стильные и гармоничные образы, подчеркивающие индивидуальность.
+          </p>
+        </div>
+      </section>
+
+      <!-- Обмен/продажа -->
+      <section id="exchange-sale" class="feature-section">
+        <div class="feature-content">
+          <h2>Обмен и продажа</h2>
+          <p>
+            Функция обмена вещей позволяет избавиться от ненужной одежды и
+            получить вознаграждение, способствуя осознанному потреблению.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

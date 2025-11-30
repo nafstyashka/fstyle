@@ -1,0 +1,610 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background-color: #91ba6f; /* фон всего сайта */
+  color: #000;
+  line-height: 1.6;
+}
+
+/* --- Header --- */
+header {
+  background-color: #91ba6f; /* немного светлее основного фона */
+  padding-bottom: 10px;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-item {
+  background: #f0f0f0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #a0a0a0;
+  margin: 0 20px;
+}
+
+/* --- Hero section --- */
+.hero {
+  padding: 60px 20px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.hero-title {
+  font-size: 36px;
+  font-weight: 700;
+  flex: 0 0 40%;
+  line-height: 1.2;
+}
+
+.hero-text {
+  flex: 0 0 55%;
+}
+
+.hero-text p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.cta-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #222;
+}
+
+/* --- Изображение --- */
+.center-image {
+  text-align: center;
+  padding: 20px;
+}
+
+.center-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 768px) {
+  .top-nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-title,
+  .hero-text {
+    flex: none;
+    width: 100%;
+  }
+}
+
+.wardrobe {
+  text-align: center;
+  padding-top: 200px;
+}
+
+.wardrobe-paragraph {
+  color: #2c2b2b;
+  padding-top: 30px;
+}
+#quiz {
+  padding-left: 100px;
+}
+.upload-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.upload-area {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.upload-area input[type="file"] {
+  display: none;
+}
+
+.upload-area label {
+  display: block;
+  padding: 10px 15px;
+  background: #f0f0f0;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.upload-area label:hover {
+  background: #e0e0e0;
+}
+
+#generate-outfit-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.outfit-preview {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.outfit-preview img {
+  max-width: 120px;
+  height: auto;
+  border: 2px solid #8a9b7c;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-option {
+  position: relative;
+  padding: 14px 20px 14px 50px; /* отступ слева под галочку */
+  background: #f5f1e9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  margin: 10px auto;
+  max-width: 500px;
+  transition: all 0.2s;
+}
+
+.quiz-option:hover {
+  background: #ede8e0;
+}
+
+.quiz-option.selected {
+  background: #8a9b7c;
+  color: white;
+  border-color: #7d8c6e;
+}
+
+/* Галочка */
+.quiz-option::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+}
+
+.quiz-option.selected::before {
+  background: white;
+  content: "✓";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a9b7c;
+  font-weight: bold;
+  font-size: 14px;
+  border-color: white;
+}
+.quiz-option::before {
+  transition: all 0.2s ease;
+}
+
+.progress-container {
+  width: 100%;
+  max-width: 500px;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #8a9b7c; /* ваш оливковый цвет */
+  width: 0%;
+  transition: width 0.3s ease;
+}
+#question-container {
+  text-align: center;
+}
+/* Общие стили для всех кнопок */
+.cta-button,
+#next-btn,
+#generate-outfit-btn,
+button[type="submit"] {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: "Roboto", Arial, sans-serif;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Кнопка "Начать" (главная CTA) */
+.cta-button {
+  background: #000;
+  color: white;
+  width: 100%;
+  max-width: 200px;
+  margin: 20px auto 0;
+}
+
+.cta-button:hover {
+  background: #222;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Кнопка "Далее" в тесте */
+#next-btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #8a9b7c; /* оливковый */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: "Roboto", Arial, sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: none; /* изначально скрыта */
+  margin-left: auto; /* ← сдвигает кнопку вправо */
+  margin-top: 24px;
+  max-width: 140px;
+}
+
+#next-btn:hover {
+  background: #7d8c6e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(138, 155, 124, 0.3);
+}
+
+/* Кнопка "Получить доступ" (в форме email) */
+button[type="submit"] {
+  background: #000;
+  color: white;
+  width: 100%;
+  max-width: 220px;
+  margin-top: 12px;
+}
+
+button[type="submit"]:hover {
+  background: #222;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Поле ввода email */
+input[type="email"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: "Roboto", Arial, sans-serif;
+  margin-top: 8px;
+  transition: border-color 0.2s;
+}
+
+input[type="email"]:focus {
+  outline: none;
+  border-color: #8a9b7c;
+  box-shadow: 0 0 0 3px rgba(138, 155, 124, 0.2);
+}
+
+/* Дополнительно: кнопки загрузки фото и скачивания */
+#generate-outfit-btn,
+#download-outfit-btn {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+
+#generate-outfit-btn {
+  background: #8a9b7c;
+  color: white;
+}
+
+#generate-outfit-btn:hover {
+  background: #7d8c6e;
+}
+
+#download-outfit-btn {
+  background: #000;
+  color: white;
+}
+
+#download-outfit-btn:hover {
+  background: #222;
+}
+.create-outfit-btn {
+  padding: 14px 28px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #333; /* тёмно-серый вместо чёрного — мягче */
+  background: rgba(138, 155, 124, 0.15); /* оливковый с прозрачностью */
+  backdrop-filter: blur(4px); /* лёгкое размытие фона (если поддерживается) */
+  border: 1px solid rgba(138, 155, 124, 0.3);
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: all 0.3s ease;
+  font-family: "Roboto", Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.create-outfit-btn:hover {
+  background: rgba(245, 241, 233, 0.6); /* бежевый с прозрачностью */
+  border-color: rgba(138, 155, 124, 0.4);
+  color: #444;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(138, 155, 124, 0.2);
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .create-outfit-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+#result {
+  margin-left: 50px;
+}
+.quiz-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* выравнивание вопроса по левому краю */
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+.quiz-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрирует вопрос */
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+#question-container {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+#next-btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #8a9b7c;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: "Roboto", Arial, sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: none;
+  margin-top: 24px;
+  align-self: flex-end; /* ← Сдвигает кнопку вправо */
+}
+
+#next-btn:hover {
+  background: #7d8c6e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(138, 155, 124, 0.3);
+}
+
+.upload-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.upload-area input[type="file"] {
+  display: none;
+}
+
+.upload-area label {
+  display: block;
+  padding: 10px 16px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.upload-area label:hover {
+  background: #e0e0e0;
+}
+
+#generate-outfit-btn,
+#download-outfit-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#generate-outfit-btn {
+  background: #8a9b7c;
+  color: white;
+}
+
+#generate-outfit-btn:hover {
+  background: #7d8c6e;
+}
+
+#download-outfit-btn {
+  background: #000;
+  color: white;
+}
+
+#download-outfit-btn:hover {
+  background: #222;
+}
+
+.outfit-preview {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.outfit-preview img {
+  max-width: 120px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Feature Sections --- */
+.feature-section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feature-content {
+  text-align: center;
+}
+
+.feature-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2c2c2c;
+}
+
+.feature-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Плавная прокрутка */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Убираем выделение при якорной навигации */
+.feature-section:target {
+  background-color: transparent !important;
+  outline: none;
+}
+
+/* --- Меню --- */
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  display: block;
+  background: #f0f0f0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.menu a:hover {
+  background: #e0e0e0;
+}
+
+.menu a:active,
+.menu a:focus {
+  outline: none;
+  background: #d0d0d0;
+}
